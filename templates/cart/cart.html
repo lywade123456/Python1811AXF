@@ -1,0 +1,18 @@
+{% extends 'base/base_h_f.html' %}
+{% load static %}
+
+{% block title %}
+    爱鲜蜂 | 购物车
+{% endblock %}
+
+{% block extcss %}
+    <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+{% endblock %}
+
+{% block extjs %}
+    <script src="{% static 'cart/js/cart.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <h1>购物车</h1>
+{% endblock %}

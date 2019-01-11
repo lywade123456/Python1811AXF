@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extbasecss %}
+    <link rel="stylesheet" href="{% static 'base/css/base_h_f.css' %}">
+    {% block extcss %}
+    {% endblock %}
+{% endblock %}
+
+{% block extbasejs %}
+    <script src="{% static 'base/js/base_h_f.js' %}"></script>
+    {% block extjs %}
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+{#    头部#}
+    {% block header %}
+        <header>头部</header>
+    {% endblock %}
+
+{#    主体内容#}
+    {% block content %}
+
+    {% endblock %}
+
+{#    尾部#}
+    {% block footer %}
+        <footer>尾部</footer>
+    {% endblock %}
+{% endblock %}
