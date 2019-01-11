@@ -7,6 +7,7 @@
         {% block title %}
         {% endblock %}
     </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="{% static 'base/css/base.css' %}">
     <link rel="stylesheet" href="{% static 'base/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'base/css/reset.css' %}">
@@ -20,7 +21,9 @@
 
 {% endblock %}
 
-<scirpt src="{% static 'base/js/jquery.min.js' %}"></scirpt>
+{#<scirpt src="{% static 'base/js/jquery.min.js' %}"></scirpt>#}
+{#<scirpt src="{% static 'base/js/jquery.js' %}"></scirpt>#}
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 <script src="{% static 'base/js/base.js' %}"></script>
 <scirpt src="{% static 'base/js/bootstrap.min.js' %}"></scirpt>
 {% block extbasejs %}
