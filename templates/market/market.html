@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block extjs %}
+    <script src="{% static 'market/js/jquery.cookie.js' %}"></script>
     <script src="{% static 'market/js/market.js' %}"></script>
 {% endblock %}
 
@@ -19,8 +20,8 @@
         <div class="type-slider">
             <ul>
                 {% for foodtype in foodtypes %}
-                <li>
-                    <a href="#">
+                <li class="type-item">
+                    <a href="{% url 'axf:market' %}">
                         <span></span>
                         {{ foodtype.typename }}
                     </a>
@@ -32,13 +33,13 @@
 {#      顶部(子类、排序)#}
         <nav>
             <ul>
-                <li>
+                <li id="category-bt">
                     <span>
                         全部类型
-                        <i class="glyphicon glyphicon-triangle-top "></i>
+                        <i class="glyphicon glyphicon-triangle-top"></i>
                     </span>
                 </li>
-                <li>
+                <li id="sort-bt">
                     <span>
                         综合排序
                         <i class="glyphicon glyphicon-triangle-top "></i>
@@ -47,7 +48,65 @@
             </ul>
         </nav>
 
-{#      主体内容(商品列表)#}
-        <div class="main-content"></div>
+{#      主体内容#}
+        <div class="main-content">
+{#            商品信息#}
+            <div class="content-wrapper">
+                <ul>
+                    {% for goods in goods_list %}
+                    <li>
+                        <a href="#">
+                            <img class="goods-img" src="{{ goods.productimg }}" alt="">
+                            <div class="goods-info">
+                                <p class="name">
+                                    {{ goods.productlongname }}
+                                </p>
+                                <p class="detailtag">
+                                    {% if goods.isxf %}
+                                        <span class="xf">精选</span>
+                                    {% endif %}
+                                    销量: {{ goods.productnum }}
+                                </p>
+                                <p class="specifics">
+                                    {{ goods.specifics }}
+                                </p>
+                                <p class="price">
+                                    <span class="now-price">{{ goods.price }}</span>
+                                    <span class="market-price">{{ goods.marketprice }}</span>
+                                </p>
+                            </div>
+                        </a>
+
+                        <div class="bt-wrapper">
+                            <span class="glyphicon glyphicon-minus"></span>
+                            <span class="num">10</span>
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+{#            子类#}
+            <div class="bounce-view category-view">
+                <div class="bounce-wrapper">
+                    {% for childtype in childtypes %}
+                        <a href="#">
+                            {{ childtype.childname }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+{#            排序#}
+            <div class="bounce-view sort-view">
+                <div class="bounce-wrapper">
+                    <a href="#">综合排序</a>
+                    <a href="#">销量排序</a>
+                    <a href="#">价格最低</a>
+                    <a href="#">价格最高</a>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

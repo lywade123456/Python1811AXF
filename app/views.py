@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from app.models import Wheel, Nav, Mustbuy, Shop, MainShop, Foodtypes
+from app.models import Wheel, Nav, Mustbuy, Shop, MainShop, Foodtypes, Goods
 
 
 def home(request):
@@ -38,12 +38,37 @@ def home(request):
     return render(request, 'home/home.html', context=data)
 
 
+# categoryid 分类ID
 def market(request):
-
+    # 分类
     foodtypes = Foodtypes.objects.all()
 
+    # 获取 客户端点击的 分类下标  >> typeIndex
+    typeIndex = int(request.COOKIES.get('typeIndex', 0))
+    #根据分类下标 获取 分类ID
+    categoryid = foodtypes[typeIndex].typeid
+
+    # 获取 对应分类下   子类
+    childtypenames = foodtypes[typeIndex].childtypenames
+    # 拆分
+    childtypes = []
+    for item in childtypenames.split('#'):
+        # item  >>>>  子类名称:子类ID
+        temp = item.split(':')
+        dir = {
+            'childname': temp[0],
+            'childid': temp[1]
+        }
+        childtypes.append(dir)
+
+    # 商品
+    # goods_list = Goods.objects.all()[0:5]
+    goods_list = Goods.objects.filter(categoryid=categoryid)
+
     data = {
-        'foodtypes':foodtypes
+        'foodtypes': foodtypes,
+        'goods_list': goods_list,
+        'childtypes': childtypes
     }
 
     return render(request, 'market/market.html',context=data)

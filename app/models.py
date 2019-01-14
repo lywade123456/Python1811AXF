@@ -75,7 +75,6 @@ class MainShop(models.Model):
 # ("104747","新品尝鲜","全部分类:0",2),
 # ("103532","优选水果","全部分类:0#进口水果:103534#国产水果:103533",3)
 
-
 # typeid 分类ID
 # 进口水果:103534   》》》  子类名称:子类ID
 class Foodtypes(models.Model):
@@ -90,3 +89,45 @@ class Foodtypes(models.Model):
 
     class Meta:
         db_table = 'axf_foodtypes'
+
+
+# 商品 模型类
+# insert into
+# axf_goods
+# (productid,productimg,productname,productlongname,isxf,pmdesc,specifics,price,marketprice,categoryid,childcid,childcidname,dealerid,storenums,productnum)
+# values
+# ("11951","http://img01.bqstatic.com/upload/goods/000/001/1951/0000011951_63930.jpg@200w_200h_90Q","","乐吧薯片鲜虾味50.0g",0,0,"50g",2.00,2.500000,103541,103543,"膨化食品","4858",200,4);
+class Goods(models.Model):
+    # 商品ID
+    productid = models.CharField(max_length=10)
+    # 商品图片
+    productimg = models.CharField(max_length=100)
+    # 商品名称
+    productname = models.CharField(max_length=100)
+    # 商品长名称
+    productlongname = models.CharField(max_length=200)
+    # 是否精选
+    isxf = models.IntegerField(default=0)
+    # 是否买一送一
+    pmdesc = models.IntegerField(default=0)
+    # 规格
+    specifics = models.CharField(max_length=100)
+    # 价格
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    # 超市价格
+    marketprice = models.DecimalField(max_digits=8, decimal_places=2)
+    # 分类ID
+    categoryid = models.IntegerField()
+    # 子类ID
+    childcid = models.IntegerField()
+    # 子类名称
+    childcidname = models.CharField(max_length=100)
+    # 详情ID
+    dealerid = models.CharField(max_length=100)
+    # 库存
+    storenums = models.IntegerField()
+    # 销量
+    productnum = models.IntegerField()
+
+    class Meta:
+        db_table = 'axf_goods'
