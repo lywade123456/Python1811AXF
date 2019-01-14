@@ -1,4 +1,8 @@
-var topSwiper = new Swiper('#topSwiper', {
+$(function () {
+    // 为了保证屏幕宽度不受到影响
+    $('.home').width(innerWidth)
+
+    var topSwiper = new Swiper('#topSwiper', {
         pagination: '.swiper-pagination',
         slidesPerView: 1,
         paginationClickable: true,
@@ -17,10 +21,7 @@ var topSwiper = new Swiper('#topSwiper', {
     });
 
 
-
-
-
-var mustbuySwiper = new Swiper('#mustbuySwiper', {
+    var mustbuySwiper = new Swiper('#mustbuySwiper', {
         paginationClickable: true,
         spaceBetween: 3,
         loop: true,
@@ -28,3 +29,5 @@ var mustbuySwiper = new Swiper('#mustbuySwiper', {
         slidesPerView: 3,
         freeMode: true
     });
+
+})

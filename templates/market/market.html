@@ -14,5 +14,40 @@
 {% endblock %}
 
 {% block content %}
-    <h1>超市</h1>
+    <div class="market">
+{#      侧边栏(分类)#}
+        <div class="type-slider">
+            <ul>
+                {% for foodtype in foodtypes %}
+                <li>
+                    <a href="#">
+                        <span></span>
+                        {{ foodtype.typename }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+{#      顶部(子类、排序)#}
+        <nav>
+            <ul>
+                <li>
+                    <span>
+                        全部类型
+                        <i class="glyphicon glyphicon-triangle-top "></i>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        综合排序
+                        <i class="glyphicon glyphicon-triangle-top "></i>
+                    </span>
+                </li>
+            </ul>
+        </nav>
+
+{#      主体内容(商品列表)#}
+        <div class="main-content"></div>
+    </div>
 {% endblock %}

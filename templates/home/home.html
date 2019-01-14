@@ -53,5 +53,84 @@
             {% endfor %}
         </div>
     </div>
+
+{#    商品(部分)#}
+    <div class="shop">
+        <div class="shophead">
+            <a href="#">
+                <img src="{{ shophead.img }}" alt="">
+            </a>
+        </div>
+        <div class="shoptab">
+            {% for shoptab in shoptabs %}
+                <a href="#">
+                    <img src="{{ shoptab.img }}" alt="">
+                </a>
+            {% endfor %}
+        </div>
+        <ul class="shopclass">
+            {% for item in shopclass %}
+                <li>
+                    <a href="#">
+                        <img src="{{ item.img }}" alt="">
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <ul class="shopcommend">
+            {% for shopcommend in shopcommends %}
+                <li>
+                    <a href="#">
+                        <img src="{{ shopcommend.img }}" alt="">
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{#   商品主体内容#}
+    <div class="main">
+        {% for mainshow in mainshows %}
+            <div class="main-wrapper">
+                <div class="title">
+                    {{ mainshow.name }}
+                    <a href="#">更多</a>
+                    <span></span>
+                </div>
+                <div class="headimg">
+                    <img src="{{ mainshow.img }}" alt="">
+                </div>
+                <div class="shoplist">
+                    <div class="shopitem">
+                        <a href="#">
+                            <img class="img" src="{{ mainshow.img1 }}" alt="">
+                            <p class="desc">{{ mainshow.longname1 }}</p>
+                            <span class="price">￥{{ mainshow.price1 }}</span>
+                            <span class="marketprice">￥{{ mainshow.marketprice1 }}</span>
+                        </a>
+                        <button>+</button>
+                    </div>
+                    <div class="shopitem">
+                        <a href="#">
+                            <img class="img" src="{{ mainshow.img2 }}" alt="">
+                            <p class="desc">{{ mainshow.longname2 }}</p>
+                            <span class="price">￥{{ mainshow.price2 }}</span>
+                            <span class="marketprice">￥{{ mainshow.marketprice2 }}</span>
+                        </a>
+                        <button>+</button>
+                    </div>
+                    <div class="shopitem">
+                        <a href="#">
+                            <img class="img" src="{{ mainshow.img3 }}" alt="">
+                            <p class="desc">{{ mainshow.longname3}}</p>
+                            <span class="price">￥{{ mainshow.price3 }}</span>
+                            <span class="marketprice">￥{{ mainshow.marketprice3 }}</span>
+                        </a>
+                        <button>+</button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
