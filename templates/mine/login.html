@@ -1,0 +1,27 @@
+{% extends 'base/base_h_f.html' %}
+{% load static %}
+{% block footer %}
+{% endblock %}
+
+{% block extcss %}
+    <link rel="stylesheet" href="{% static 'mine/css/login.css' %}">
+{% endblock %}
+
+{% block extjs %}
+    <script src="{% static 'mine/js/login.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="login">
+        <div class="back">
+            <a href="{% url 'axf:mine' %}">
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
+        </div>
+
+        <form action="{% url 'axf:login' %}" method="post">
+            {% csrf_token %}
+
+        </form>
+    </div>
+{% endblock %}

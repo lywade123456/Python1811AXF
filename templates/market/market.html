@@ -21,7 +21,7 @@
             <ul>
                 {% for foodtype in foodtypes %}
                 <li class="type-item">
-                    <a href="{% url 'axf:market' %}">
+                    <a href="{% url 'axf:market' 0 1 %}">
                         <span></span>
                         {{ foodtype.typename }}
                     </a>
@@ -91,7 +91,7 @@
             <div class="bounce-view category-view">
                 <div class="bounce-wrapper">
                     {% for childtype in childtypes %}
-                        <a href="#">
+                        <a href="{% url 'axf:market' childtype.childid 1 %}">
                             {{ childtype.childname }}
                         </a>
                     {% endfor %}
@@ -101,10 +101,10 @@
 {#            排序#}
             <div class="bounce-view sort-view">
                 <div class="bounce-wrapper">
-                    <a href="#">综合排序</a>
-                    <a href="#">销量排序</a>
-                    <a href="#">价格最低</a>
-                    <a href="#">价格最高</a>
+                    <a href="{% url 'axf:market' childcid 1 %}">综合排序</a>
+                    <a href="{% url 'axf:market' childcid 2 %}">销量排序</a>
+                    <a href="{% url 'axf:market' childcid 3 %}">价格最低</a>
+                    <a href="{% url 'axf:market' childcid 4 %}">价格最高</a>
                 </div>
             </div>
         </div>

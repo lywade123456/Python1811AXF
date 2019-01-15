@@ -1,0 +1,64 @@
+{% extends 'base/base_h_f.html' %}
+{% load static %}
+{% block footer %}
+{% endblock %}
+
+{% block extcss %}
+    <link rel="stylesheet" href="{% static 'mine/css/register.css' %}">
+{% endblock %}
+
+{% block extjs %}
+    <script src="{% static 'mine/js/regist.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="register">
+        <div class="back">
+            <a href="{% url 'axf:mine' %}">
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
+        </div>
+
+        <form id="register" action="{% url 'axf:register' %}" method="post">
+            {% csrf_token %}
+
+
+{#           has-error  has-success#}
+            <div class="form-group has-feedback" id="email">
+                <div class="input-group">
+                    <span class="input-group-addon">邮箱</span>
+                    <input type="text" class="form-control" placeholder="邮箱" name="email">
+                </div>
+{#                glyphicon-remove  glyphicon-ok#}
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+
+            <div class="form-group has-feedback" id="password">
+                <div class="input-group">
+                    <span class="input-group-addon">密码</span>
+                    <input type="password" class="form-control" placeholder="密码(数字、字母、下划线)" name="password" maxlength="6">
+                </div>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+
+            <div class="form-group has-feedback" id="name">
+                <div class="input-group">
+                    <span class="input-group-addon">名字</span>
+                    <input type="text" class="form-control" placeholder="名字(3~10位)" name="name">
+                </div>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+
+            <div class="form-group has-feedback" id="phone">
+                <div class="input-group">
+                    <span class="input-group-addon">手机</span>
+                    <input type="text" class="form-control" placeholder="手机号" name="phone" maxlength="11">
+                </div>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+
+{#          如果直接使用input点击，会直接提交给服务器 [假如有错误，也同样提交] #}
+            <div id="subButton" class="btn btn-success">注册</div>
+        </form>
+    </div>
+{% endblock %}

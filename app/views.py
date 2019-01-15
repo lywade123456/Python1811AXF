@@ -39,7 +39,9 @@ def home(request):
 
 
 # categoryid 分类ID
-def market(request):
+# childcid 子类ID
+# sortid 排序ID [自己定制， 1综合排序， 2销量排序， 3价格最低， 4价格最高]
+def market(request, childcid, sortid):
     # 分类
     foodtypes = Foodtypes.objects.all()
 
@@ -63,12 +65,27 @@ def market(request):
 
     # 商品
     # goods_list = Goods.objects.all()[0:5]
-    goods_list = Goods.objects.filter(categoryid=categoryid)
+    # goods_list = Goods.objects.filter(categoryid=categoryid)
+
+    # 子类处理
+    if childcid == '0':       # 全部分类
+        goods_list = Goods.objects.filter(categoryid=categoryid)
+    else:   # 对应分类下的 子类
+        goods_list = Goods.objects.filter(categoryid=categoryid).filter(childcid=childcid)
+
+    # 排序处理
+    if sortid == '2':   # 销量排序
+        goods_list = goods_list.order_by('-productnum')
+    elif sortid == '3': # 价格最低
+        goods_list = goods_list.order_by('price')
+    elif sortid == '4': # 价格最高
+        goods_list = goods_list.order_by('-price')
 
     data = {
         'foodtypes': foodtypes,
         'goods_list': goods_list,
-        'childtypes': childtypes
+        'childtypes': childtypes,
+        'childcid':childcid
     }
 
     return render(request, 'market/market.html',context=data)
@@ -80,3 +97,19 @@ def cart(request):
 
 def mine(request):
     return render(request, 'mine/mine.html')
+
+
+def login(request):
+    if request.method == 'GET':
+        return render(request, 'mine/login.html')
+    elif request.method == 'POST':
+        pass
+
+
+def register(request):
+    if request.method == 'GET':
+        return render(request, 'mine/register.html')
+    elif request.method == 'POST':
+        print(request.POST.get('name'))
+
+        return HttpResponse('正在注册...')
