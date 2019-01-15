@@ -1,7 +1,11 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+import hashlib
+import random
+import time
 
-from app.models import Wheel, Nav, Mustbuy, Shop, MainShop, Foodtypes, Goods
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render, redirect
+
+from app.models import Wheel, Nav, Mustbuy, Shop, MainShop, Foodtypes, Goods, User
 
 
 def home(request):
@@ -96,20 +100,82 @@ def cart(request):
 
 
 def mine(request):
-    return render(request, 'mine/mine.html')
+
+    # 获取token
+    token = request.session.get('token')
+
+    user = None
+
+    if token:
+        user = User.objects.get(token=token)
+
+    return render(request, 'mine/mine.html', context={'user': user})
 
 
 def login(request):
     if request.method == 'GET':
         return render(request, 'mine/login.html')
     elif request.method == 'POST':
-        pass
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        try:
+            # 假如账号错误，抛出异常
+            user = User.objects.get(email=email)
+            if user.password == generate_password(password):    # 成功
+                user.token = generate_token()
+                user.save()
+                request.session['token']= user.token
+                return redirect('axf:mine')
+            else:   # 密码错误
+                return render(request, 'mine/login.html', context={'err': '密码错误'})
+        except:
+            return render(request, 'mine/login.html', context={'err':'账号不存在'})
+
+
+def generate_password(param):
+    md5 = hashlib.md5()
+    md5.update(param.encode('utf-8'))
+    return md5.hexdigest()
+
+
+def generate_token():
+    md5 = hashlib.md5()
+    tempstr = str(time.time()) + str(random.random())
+    md5.update(tempstr.encode('utf-8'))
+    return md5.hexdigest()
 
 
 def register(request):
     if request.method == 'GET':
         return render(request, 'mine/register.html')
     elif request.method == 'POST':
-        print(request.POST.get('name'))
+        user = User()
+        user.email = request.POST.get('email')
+        user.password = generate_password(request.POST.get('password'))
+        user.name = request.POST.get('name')
+        user.phone = request.POST.get('phone')
 
-        return HttpResponse('正在注册...')
+        # 状态保持
+        user.token = generate_token()
+        request.session['token'] = user.token
+
+        # 存储数据库
+        user.save()
+
+        return redirect('axf:mine')
+
+
+def checkemail(request):
+    email = request.GET.get('email')
+
+    users = User.objects.filter(email=email)
+    if users.exists():  # 占用
+        return JsonResponse({'msg': '账号被占用！', 'status':0})
+    else:   # 可用
+        return JsonResponse({'msg': '账号可以使用!', 'status':1})
+
+
+def logout(request):
+    request.session.flush()
+    return redirect('axf:mine')

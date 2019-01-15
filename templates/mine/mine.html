@@ -17,21 +17,23 @@
     <div class="mine">
         <div class="user-wrapper">
             <div class="user-img">
-                <img src="{% static 'mine/img/axf.png' %}" alt="">
+                <img src="/static/mine/img/{{ user.img | default:'axf.png' }}" alt="">
             </div>
             <div class="user-content">
                 <p>
                     <span class="glyphicon glyphicon-user"></span>
-                    <a href="{% url 'axf:login' %}">未登录</a>
+                    <a href="{% url 'axf:login' %}"> {{ user.name | default:'未登录' }} </a>
                 </p>
                 <p>
                     <span class="glyphicon glyphicon-align-left"></span>
-                    等级: VIP1
+                    等级: {{ user.rank | default:'请登录' }}
                 </p>
 
-                <a href="{% url 'axf:register' %}" class="register">
-                    注册
-                </a>
+                {% if user == None %}
+                    <a href="{% url 'axf:register' %}" class="register">
+                        注册
+                    </a>
+                {% endif %}
             </div>
         </div>
 
@@ -124,11 +126,13 @@
                 </ul>
             </section>
 
-            <section class="quit">
-                <a href="#">
-                    退出登录
-                </a>
+            {% if user %}
+                <section class="quit">
+                    <a href="{% url 'axf:logout' %}">
+                        退出登录
+                    </a>
             </section>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

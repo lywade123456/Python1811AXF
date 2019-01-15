@@ -19,9 +19,34 @@
             </a>
         </div>
 
-        <form action="{% url 'axf:login' %}" method="post">
+        <form id="login" action="{% url 'axf:login' %}" method="post">
             {% csrf_token %}
 
+
+            <div class="form-group has-feedback" id="email">
+                <div class="input-group">
+                    <span class="input-group-addon">邮箱</span>
+                    <input type="text" class="form-control" placeholder="邮箱" name="email">
+                </div>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+
+
+            <div class="form-group has-feedback" id="password">
+                <div class="input-group">
+                    <span class="input-group-addon">密码</span>
+                    <input type="password" class="form-control" placeholder="密码(数字、字母、下划线)" name="password" maxlength="6">
+                </div>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+
+            <p style="color: red;" id="err">{{ err }}</p>
+
+
+{#          如果直接使用input点击，会直接提交给服务器 [假如有错误，也同样提交] #}
+            <div id="subButton" class="btn btn-success">登录</div>
         </form>
+
+
     </div>
 {% endblock %}

@@ -6,8 +6,24 @@ $(function () {
         var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/
 
         if(reg.test( $(this).val() )){  // 符合
-            $('#email').removeClass('has-error').addClass('has-success')
-            $('#email>span').removeClass('glyphicon-remove').addClass('glyphicon-ok')
+            // $('#email').removeClass('has-error').addClass('has-success')
+            // $('#email>span').removeClass('glyphicon-remove').addClass('glyphicon-ok')
+
+            // 发起ajax请求 【问服务器该邮箱是否可用】
+            // jQuery.get( url [, data ] [, success(data, textStatus, jqXHR) ] [, dataType ] )
+
+            $.get('/axf/checkemail/', {'email': $(this).val()}, function (response) {
+                console.log(response)
+                if (response.status ){  // 可用
+                    $('#email').removeClass('has-error').addClass('has-success')
+                    $('#email>span').removeClass('glyphicon-remove').addClass('glyphicon-ok')
+                    $('#err').html('')
+                } else {    // 不可用
+                    $('#email').removeClass('has-success').addClass('has-error')
+                    $('#email>span').removeClass('glyphicon-ok').addClass('glyphicon-remove')
+                    $('#err').html(response.msg)
+                }
+            })
         } else {    // 不符合
             $('#email').removeClass('has-success').addClass('has-error')
             $('#email>span').removeClass('glyphicon-ok').addClass('glyphicon-remove')

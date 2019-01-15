@@ -11,4 +11,6 @@ urlpatterns = [
 
     url(r'^login/$', views.login, name='login'),    # 登录
     url(r'^register/$', views.register, name='register'),   # 注册
+    url(r'^checkemail/$', views.checkemail, name='checkemail'), # 验证邮箱
+    url(r'^logout/$', views.logout, name='logout'), # 退出
 ]
