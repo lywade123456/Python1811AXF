@@ -14,5 +14,46 @@
 {% endblock %}
 
 {% block content %}
-    <h1>购物车</h1>
+    <div class="cart">
+        <ul>
+            {% for cart in carts %}
+            <li>
+                <div class="confirm-wrapper" cartid="{{ cart.id }}">
+                    {% if cart.isselect %}
+                        <span class="glyphicon glyphicon-ok"></span>
+                    {% else %}
+                        <span class="no"></span>
+                    {% endif %}
+                </div>
+
+                <div class="content-wrapper">
+                    <div class="img">
+                        <img src="{{ cart.goods.productimg }}" alt="">
+                    </div>
+                    <div class="detail">
+                        <p class="name">{{ cart.goods.productlongname }}</p>
+                        <p class="price">￥{{ cart.goods.price }}</p>
+                        <p class="num">x{{ cart.number }}</p>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="bill">
+            <div class="bill-left">
+                <div class="all" isall="true">
+                    <span class="glyphicon glyphicon-ok"></span>
+                    <b>全选</b>
+                </div>
+                <div class="total">
+                    ￥ 100
+                </div>
+            </div>
+
+            <div class="bill-right">
+                下单
+            </div>
+        </div>
+    </div>
 {% endblock %}

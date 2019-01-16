@@ -104,7 +104,20 @@ def market(request, childcid, sortid):
 
 
 def cart(request):
-    return render(request, 'cart/cart.html')
+    token = request.session.get('token')
+    if token:
+        user = User.objects.get(token=token)
+        carts = Cart.objects.filter(user=user).exclude(number=0)
+
+        data = {
+            'carts':carts
+        }
+
+        return render(request, 'cart/cart.html', context=data)
+    else:
+        return  redirect('axf:login')
+
+
 
 
 def mine(request):
@@ -244,3 +257,41 @@ def subcart(request):
     }
 
     return JsonResponse(responseData)
+
+
+def changecartstatus(request):
+    cartid = request.GET.get('cartid')
+
+    cart = Cart.objects.get(pk=cartid)
+    cart.isselect = not cart.isselect
+    cart.save()
+
+    data = {
+        'msg':'状态修改成功',
+        'status': 1,
+        'isselect': cart.isselect
+    }
+
+    return JsonResponse(data)
+
+
+def changecartall(request):
+    token = request.session.get('token')
+    user = User.objects.get(token=token)
+
+
+    # True/False
+    isall = request.GET.get('isall')
+    if isall == 'true':
+        isall = True
+    else:
+        isall = False
+
+    carts = Cart.objects.filter(user=user).update(isselect=isall)
+
+    data = {
+        'msg': '状态修改成功',
+        'status': 1,
+    }
+
+    return JsonResponse(data)

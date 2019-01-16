@@ -15,5 +15,7 @@ urlpatterns = [
     url(r'^logout/$', views.logout, name='logout'), # 退出
 
     url(r'^addcart/$', views.addcart, name='addcart'), # 加操作
-    url(r'^subcart/$', views.subcart, name='subcart'),
+    url(r'^subcart/$', views.subcart, name='subcart'),  # 减操作
+    url(r'^changecartstatus/$', views.changecartstatus, name='changecartstatus'),   # 修改购物车记录选中状态
+    url(r'^changecartall/$', views.changecartall, name='changecartall'),    # 全选操作
 ]
