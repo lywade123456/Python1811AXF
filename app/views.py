@@ -5,7 +5,7 @@ import time
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
-from app.models import Wheel, Nav, Mustbuy, Shop, MainShop, Foodtypes, Goods, User
+from app.models import Wheel, Nav, Mustbuy, Shop, MainShop, Foodtypes, Goods, User, Cart
 
 
 def home(request):
@@ -85,11 +85,19 @@ def market(request, childcid, sortid):
     elif sortid == '4': # 价格最高
         goods_list = goods_list.order_by('-price')
 
+    # 获取购物车信息 [对应用户的]
+    token = request.session.get('token')
+    carts = []
+    if token:
+        user = User.objects.get(token=token)
+        carts = Cart.objects.filter(user=user)
+
     data = {
         'foodtypes': foodtypes,
         'goods_list': goods_list,
         'childtypes': childtypes,
-        'childcid':childcid
+        'childcid':childcid,
+        'carts':carts
     }
 
     return render(request, 'market/market.html',context=data)
@@ -179,3 +187,60 @@ def checkemail(request):
 def logout(request):
     request.session.flush()
     return redirect('axf:mine')
+
+
+def addcart(request):
+    # 有token，就知道是谁
+    token = request.session.get('token')
+
+    if token:   # 加操作(有登录)
+        user = User.objects.get(token=token)
+        goodsid = request.GET.get('goodsid')
+        goods = Goods.objects.get(pk=goodsid)
+
+        # 第一次操作: 添加一条新记录
+        # 后续操作: 只需要修改number
+
+        # 判断该商品是否存在
+        carts = Cart.objects.filter(user=user).filter(goods=goods)
+        if carts.exists():  # 存在，修改numbner
+            cart = carts.first()
+            cart.number = cart.number + 1
+            cart.save()
+        else:   # 添加一条新的记录
+            cart = Cart()
+            cart.user = user
+            cart.goods = goods
+            cart.number = 1
+            cart.save()
+
+        return JsonResponse({'msg':'{}-添加购物车成功!'.format(goods.productlongname),'status': 1, 'number':cart.number})
+
+    else:       # 跳转到登录(未登录)
+        # 在ajax是不能使用重定向
+        # ajax更多就是用于数据的传输(数据交互)
+
+        # 问题: 没有登录，就需要跳转到登录页面；
+        # 但在服务端重定向能不能用？   客户端
+        # return redirect('axf:login')
+        return JsonResponse({'msg':'请登录后操作!','status': 0})
+
+
+def subcart(request):
+    token = request.session.get('token')
+    user = User.objects.get(token=token)
+
+    goodsid = request.GET.get('goodsid')
+    goods = Goods.objects.get(pk=goodsid)
+
+    cart = Cart.objects.filter(user=user).filter(goods=goods).first()
+    cart.number = cart.number - 1
+    cart.save()
+
+    responseData = {
+        'msg':'{}-商品删减成功'.format(goods.productlongname),
+        'status': 1,
+        'number': cart.number
+    }
+
+    return JsonResponse(responseData)

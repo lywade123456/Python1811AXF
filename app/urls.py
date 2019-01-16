@@ -13,4 +13,7 @@ urlpatterns = [
     url(r'^register/$', views.register, name='register'),   # 注册
     url(r'^checkemail/$', views.checkemail, name='checkemail'), # 验证邮箱
     url(r'^logout/$', views.logout, name='logout'), # 退出
+
+    url(r'^addcart/$', views.addcart, name='addcart'), # 加操作
+    url(r'^subcart/$', views.subcart, name='subcart'),
 ]

@@ -151,3 +151,20 @@ class User(models.Model):
 
     class Meta:
         db_table = 'axf_user'
+
+
+class Cart(models.Model):
+    # 用户
+    user = models.ForeignKey(User)
+
+    # 商品
+    goods = models.ForeignKey(Goods)
+
+    # 额外信息 【手机: 版本、颜色、容量大小、数量...】
+    # 商品数量
+    number = models.IntegerField()
+    # 是否选中
+    isselect = models.BooleanField(default=True)
+
+    class Meta:
+        db_table = 'axf_cart'
