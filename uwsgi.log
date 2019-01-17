@@ -1,0 +1,103 @@
+*** Starting uWSGI 2.0.17.1 (64bit) on [Thu Jan 17 15:17:03 2019] ***
+compiled with version: 5.4.0 20160609 on 17 January 2019 07:08:11
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9fs05owv1cc2dm7nomZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /var/www/AXF
+writing pidfile to uwsgi.pid
+detected binary path: /root/.virtualenvs/python1811/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /var/www/AXF
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3824
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8090 fd 4
+spawned uWSGI http 1 (pid: 20880)
+uwsgi socket 0 bound to TCP address 127.0.0.1:35270 (port auto-assigned) fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x18ad3a0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72904 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x18ad3a0 pid: 20879 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 20879, cores: 1)
+*** Starting uWSGI 2.0.17.1 (64bit) on [Thu Jan 17 15:59:02 2019] ***
+compiled with version: 5.4.0 20160609 on 17 January 2019 07:08:11
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9fs05owv1cc2dm7nomZ
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /var/www/AXF
+writing pidfile to uwsgi.pid
+detected binary path: /root/.virtualenvs/python1811/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /var/www/AXF
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3824
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1b0a2b0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72904 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1b0a2b0 pid: 20957 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 20957, cores: 1)
+Traceback (most recent call last):
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/core/handlers/wsgi.py", line 156, in __call__
+    request = self.request_class(environ)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/core/handlers/wsgi.py", line 97, in __init__
+    self.method = environ['REQUEST_METHOD'].upper()
+KeyError: 'REQUEST_METHOD'
+[pid: 20957|app: 0|req: 1/1]  () {16 vars in 469 bytes} [Thu Jan 17 07:59:20 2019]   => generated 0 bytes in 0 msecs ( 500) 0 headers in 0 bytes (0 switches on core 0)
+Traceback (most recent call last):
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/core/handlers/wsgi.py", line 156, in __call__
+    request = self.request_class(environ)
+  File "/root/.virtualenvs/python1811/lib/python3.5/site-packages/django/core/handlers/wsgi.py", line 97, in __init__
+    self.method = environ['REQUEST_METHOD'].upper()
+KeyError: 'REQUEST_METHOD'
+[pid: 20957|app: 0|req: 2/2]  () {16 vars in 469 bytes} [Thu Jan 17 07:59:36 2019]   => generated 0 bytes in 0 msecs ( 500) 0 headers in 0 bytes (0 switches on core 0)
+[pid: 20957|app: 0|req: 3/3] 113.87.161.170 () {42 vars in 746 bytes} [Thu Jan 17 08:03:18 2019] GET /axf/ => generated 20349 bytes in 48 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 20957|app: 0|req: 4/4] 113.87.161.170 () {42 vars in 746 bytes} [Thu Jan 17 08:03:35 2019] GET /axf/ => generated 20349 bytes in 20 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 20957|app: 0|req: 5/5] 113.87.161.170 () {42 vars in 746 bytes} [Thu Jan 17 08:03:44 2019] GET /axf/ => generated 20349 bytes in 21 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 20957|app: 0|req: 6/6] 113.87.161.170 () {42 vars in 746 bytes} [Thu Jan 17 08:03:53 2019] GET /axf/ => generated 20349 bytes in 21 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 20957|app: 0|req: 7/7] 113.87.161.170 () {42 vars in 772 bytes} [Thu Jan 17 08:04:07 2019] GET /axf/ => generated 20349 bytes in 18 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 20957|app: 0|req: 8/8] 113.87.161.170 () {44 vars in 807 bytes} [Thu Jan 17 08:04:20 2019] GET /axf/market/0/1/ => generated 10631 bytes in 24 msecs (HTTP/1.1 200) 4 headers in 196 bytes (1 switches on core 0)
+[pid: 20957|app: 0|req: 9/9] 113.87.161.170 () {46 vars in 845 bytes} [Thu Jan 17 08:04:25 2019] GET /axf/ => generated 20349 bytes in 33 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
+[pid: 20957|app: 0|req: 10/10] 113.87.161.170 () {44 vars in 762 bytes} [Thu Jan 17 08:04:25 2019] GET /axf/cart/ => generated 0 bytes in 1 msecs (HTTP/1.1 302) 5 headers in 147 bytes (1 switches on core 0)
+[pid: 20957|app: 0|req: 11/11] 113.87.161.170 () {44 vars in 764 bytes} [Thu Jan 17 08:04:25 2019] GET /axf/login/ => generated 2411 bytes in 5 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 20957|app: 0|req: 12/12] 113.87.161.170 () {44 vars in 757 bytes} [Thu Jan 17 08:04:28 2019] GET /axf/mine/ => generated 5815 bytes in 7 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+[pid: 20957|app: 0|req: 13/13] 200.163.38.195 () {26 vars in 269 bytes} [Thu Jan 17 08:04:38 2019] GET / => generated 55080 bytes in 46 msecs (HTTP/1.0 400) 1 headers in 53 bytes (1 switches on core 0)
+[pid: 20957|app: 0|req: 14/14] 113.87.161.170 () {44 vars in 756 bytes} [Thu Jan 17 08:04:44 2019] GET /axf/home/ => generated 20349 bytes in 22 msecs (HTTP/1.1 200) 3 headers in 111 bytes (1 switches on core 0)
