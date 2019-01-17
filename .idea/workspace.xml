@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="651e4ef8-a0a5-42c5-9025-4dcdc2ae3e0d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/cart/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/cart/css/cart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/cart/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/cart/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cart/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart/cart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pyton1811AXF/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pyton1811AXF/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,7 +55,7 @@
           <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/urls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="450">
+                <state relative-caret-position="306">
                   <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
                   <folding>
                     <element signature="e#0#32#0" expanded="true" />
@@ -67,8 +67,8 @@
           <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="290" lean-forward="true" selection-start-line="290" selection-end-line="290" />
+                <state relative-caret-position="5094">
+                  <caret line="290" selection-start-line="290" selection-end-line="290" />
                   <folding>
                     <element signature="e#0#14#0" expanded="true" />
                   </folding>
@@ -76,14 +76,20 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="cart.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="cart.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/cart/cart.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="109">
-                  <caret line="20" column="35" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="35" />
-                  <folding>
-                    <element signature="e#423#705#0#HTML" />
-                  </folding>
+                <state relative-caret-position="166">
+                  <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Pyton1811AXF/settings.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="144">
+                  <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -95,7 +101,7 @@
           <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="363">
+                <state relative-caret-position="2988">
                   <caret line="166" column="12" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="12" />
                 </state>
               </provider>
@@ -104,7 +110,7 @@
           <file leaf-file-name="cart.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/static/cart/css/cart.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="363">
+                <state relative-caret-position="1944">
                   <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
                 </state>
               </provider>
@@ -113,8 +119,8 @@
           <file leaf-file-name="cart.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/static/cart/js/cart.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="399">
-                  <caret line="54" column="97" lean-forward="true" selection-start-line="54" selection-start-column="97" selection-end-line="54" selection-end-column="97" />
+                <state relative-caret-position="382">
+                  <caret line="54" column="77" lean-forward="true" selection-start-line="54" selection-start-column="77" selection-end-line="54" selection-end-column="77" />
                 </state>
               </provider>
             </entry>
@@ -144,7 +150,6 @@
       <list>
         <option value="$PROJECT_DIR$/Pyton1811AXF/urls.py" />
         <option value="$PROJECT_DIR$/Pyton1811AXF/__init__.py" />
-        <option value="$PROJECT_DIR$/Pyton1811AXF/settings.py" />
         <option value="$PROJECT_DIR$/static/base/css/base_h_f.css" />
         <option value="$PROJECT_DIR$/static/base/js/base.js" />
         <option value="$PROJECT_DIR$/templates/base/base.html" />
@@ -174,6 +179,8 @@
         <option value="$PROJECT_DIR$/app/urls.py" />
         <option value="$PROJECT_DIR$/app/views.py" />
         <option value="$PROJECT_DIR$/static/cart/js/cart.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Pyton1811AXF/settings.py" />
       </list>
     </option>
   </component>
@@ -204,36 +211,6 @@
             <path>
               <item name="Pyton1811AXF" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pyton1811AXF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pyton1811AXF" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pyton1811AXF" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pyton1811AXF" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pyton1811AXF" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pyton1811AXF" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pyton1811AXF" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="cart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pyton1811AXF" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pyton1811AXF" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="cart" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pyton1811AXF" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pyton1811AXF" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="cart" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -314,17 +291,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-11" width="1213" height="809" extended-state="6" />
+    <frame x="-1" y="-11" width="1213" height="810" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="File Transfer" weight="0.27272728" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32935917" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.13432837" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16051503" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31296572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16051503" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.20772532" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -353,23 +331,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Pyton1811AXF/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/base/css/base.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/base/css/reset.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="93" selection-start-line="3" selection-start-column="75" selection-end-line="3" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/base/js/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -638,14 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="78" column="26" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
-          <folding>
-            <element signature="e#353#678#0" />
-            <element signature="e#767#956#0" />
-            <element signature="e#1039#1208#0" />
-            <element signature="e#1272#1384#0" />
-            <element signature="e#1471#1487#0" />
-            <element signature="e#1580#1596#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -665,14 +618,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/cart/css/cart.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
+        <state relative-caret-position="1944">
           <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
+        <state relative-caret-position="306">
           <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
@@ -682,7 +635,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
+        <state relative-caret-position="2988">
           <caret line="166" column="12" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="12" />
         </state>
       </provider>
@@ -696,28 +649,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="290" lean-forward="true" selection-start-line="290" selection-end-line="290" />
+        <state relative-caret-position="5094">
+          <caret line="290" selection-start-line="290" selection-end-line="290" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cart/cart.html">
+    <entry file="file://$PROJECT_DIR$/static/cart/js/cart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="e#423#705#0#HTML" />
-          </folding>
+        <state relative-caret-position="382">
+          <caret line="54" column="77" lean-forward="true" selection-start-line="54" selection-start-column="77" selection-end-line="54" selection-end-column="77" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/cart/js/cart.js">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="36">
+            <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="54" column="97" lean-forward="true" selection-start-line="54" selection-start-column="97" selection-end-line="54" selection-end-column="97" />
+        <state relative-caret-position="36">
+          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cart/cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pyton1811AXF/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
         </state>
       </provider>
     </entry>

@@ -25,7 +25,7 @@ SECRET_KEY = 'jse-sew!smcr(#&tos42o^z%tfe=8uvq-nxr9^++u=!3pdx6pn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
