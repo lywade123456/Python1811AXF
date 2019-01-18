@@ -4,6 +4,7 @@ import time
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
 
 from app.alipay import alipay
 from app.models import Wheel, Nav, Mustbuy, Shop, MainShop, Foodtypes, Goods, User, Cart, Order, OrderGoods
@@ -344,28 +345,34 @@ def orderdetail(request, identifier):
 
     return render(request, 'order/orderdetail.html', context={'order': order})
 
-
+@csrf_exempt
 def appnotify(request):
     # http://112.74.55.3/axf/returnview/?charset=utf-8&out_trade_no=15477988300.6260414050156342&method=alipay.trade.page.pay.return&total_amount=93.00&sign=oaTJZPDeswBfEbQGkBND8w8DDOWGMdz8lw6TlL25Sp73TZtTBqUBx2vazVi5sI6pFLSgfF%2FRsxsiY20S5UzZeCJ5hfrGXp4NCg6ZpZE%2FWS1CsMnI74lO%2F8ttTx1j%2FzfhrJJuTIHJ503Z1wiDZoXHer91ynI%2FCTLn8W0de2fVhnBi5hTo7MJHJBZQnVQ%2BnFJ73cKBB16xdIJ15ISVUrYYi%2FUGJr2jh%2BllGiiTVm4o0maDuYH3ljuGVxAI4yvP%2BevAfo7B2MK%2F1BW3%2FVu8JRLatEIqeyV2Qk87%2F%2FGRndFRjRDuuZMU8zzix0eg0oKYVeBmfOnRPXhMFAs8dGPedC1D2Q%3D%3D&trade_no=2019011822001416700501217055&auth_app_id=2016091800542542&version=1.0&app_id=2016091800542542&sign_type=RSA2&seller_id=2088102176233911&timestamp=2019-01-18+16%3A08%3A08
 
     # 获取订单号，并且修改订单状态
-    from urllib.parse import parse_qs
-    body_str = request.body.decode('utf-8')
-    post_data = parse_qs(body_str)
-    post_dir = {}
+    if request.method == 'POST':
+        from urllib.parse import parse_qs
+        body_str = request.body.decode('utf-8')
+        post_data = parse_qs(body_str)
+        post_dir = {}
 
-    for key, value in post_data.items():
-        post_dir[key] = value
+        print(body_str)
+        print(post_data)
+        print(post_data.items())
+        for key, value in post_data.items():
+            post_dir[key] = value[0]
 
-    out_trade_no = post_dir['out_trade_no']
-    print(out_trade_no)
+        out_trade_no = post_dir['out_trade_no']
+        print(out_trade_no)
 
-    # 更新状态
-    Order.objects.filter(identifier=out_trade_no).update(status=1)
-    return JsonResponse({'msg': 'success'})
+        # 更新状态
+        Order.objects.filter(identifier=out_trade_no).update(status=1)
+
+        return JsonResponse({'msg': 'success'})
 
 
 def returnview(request):
+
     return redirect('axf:mine')
 
 
