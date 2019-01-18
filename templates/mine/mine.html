@@ -55,17 +55,23 @@
             <section>
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{% url 'axf:orderlist' 0 %}">
                             <dl>
-                                <dt><span class="glyphicon glyphicon-gift"></span></dt>
+                                <dt>
+                                    <span class="glyphicon glyphicon-gift"></span>
+                                    <span class="badge" style="background: red; color: white">{{ waitpay }}</span>
+                                </dt>
                                 <dd>待付款</dd>
                             </dl>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{% url 'axf:orderlist' 1 %}">
                             <dl>
-                                <dt><span class="glyphicon glyphicon-leaf"></span></dt>
+                                <dt>
+                                    <span class="glyphicon glyphicon-leaf"></span>
+                                    <span class="badge" style="background: red; colo    hite">{{ paydone }}</span>
+                                </dt>
                                 <dd>待收货</dd>
                             </dl>
                         </a>

@@ -1,0 +1,30 @@
+{% extends 'base/base_h_f.html' %}
+{% load static %}
+
+{% block title %}
+    爱鲜蜂 | 订单列表
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block content %}
+    <div class="orderdetail">
+        <ul>
+            {% for order in orders %}
+                <li>
+                    <a href="{% url 'axf:orderdetail' order.identifier %}">
+                        {{ forloop.counter }}、{{ order.identifier }}
+                    <span style="background: red; color: white">
+                        {% if order.status == 0 %}
+                            未付款
+                        {% elif order.status == 1 %}
+                            已付款
+                        {% endif %}
+                    </span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
