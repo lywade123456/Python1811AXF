@@ -18,4 +18,8 @@ urlpatterns = [
     url(r'^subcart/$', views.subcart, name='subcart'),  # 减操作
     url(r'^changecartstatus/$', views.changecartstatus, name='changecartstatus'),   # 修改购物车记录选中状态
     url(r'^changecartall/$', views.changecartall, name='changecartall'),    # 全选操作
+
+
+    url(r'^generateorder/$', views.generateorder, name='generateorder'),    # 下单
+    url(r'^orderdetail/(.+)/$', views.orderdetail, name='orderdetail'),    #　订单详情
 ]

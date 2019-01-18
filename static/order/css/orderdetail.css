@@ -1,0 +1,109 @@
+.orderdetail{
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.orderdetail ul{
+    /*background: lightpink;*/
+    padding-bottom: 2rem;
+}
+
+.orderdetail ul li{
+    background: white;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.7rem;
+
+    display: flex;
+    height: 6rem;
+}
+.orderdetail ul li .confirm-wrapper{
+    width: 10%;
+    line-height: 6rem;
+    text-align: center;
+}
+
+.orderdetail ul li .content-wrapper{
+    width: 90%;
+    display: flex;
+}
+.orderdetail ul li .content-wrapper .img{
+    width: 30%;
+    line-height: 1;
+}
+.orderdetail ul li .content-wrapper .img img{
+    width: 100%;
+}
+
+.orderdetail ul li .content-wrapper .detail{
+    width: 70%;
+    font-size: 1rem;
+}
+.orderdetail ul li .content-wrapper .detail .name{
+    width:100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.cart ul li .content-wrapper .detail .price{
+    color: indianred;
+    font-weight: 500;
+    margin: 0.3rem 0;
+}
+.orderdetail ul li .content-wrapper .detail .num{
+    text-align: right;
+    padding-right: 0.3rem;
+}
+
+
+.orderdetail .bill{
+    width:100%;
+    height: 2rem;
+    background: white;
+    position: fixed;
+    bottom: 2.75rem;
+    left: 0;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    font-size: 0.9rem;
+    line-height: 2rem;
+}
+.orderdetail .bill .bill-left{
+    width: 75%;
+    display: flex;
+    padding-left: 0.3rem;
+}
+.orderdetail .bill .bill-left .all{
+    height: 100%;
+    width: 50%;
+}
+.orderdetail .bill .bill-left .all span{
+    vertical-align: middle;
+}
+.orderdetail .bill .bill-left .all b{
+    vertical-align: middle;
+    font-weight: normal;
+    padding-left: 0.3rem;
+}
+.orderdetail .bill .bill-left .total{
+    width: 50%;
+    text-align: right;
+    padding-right: 1rem;
+}
+.orderdetail .bill .bill-left .total span{
+    font-size: 0.8rem;
+}
+.orderdetail .bill .bill-left .total b{
+    font-weight: normal;
+    color: #ffd601;
+}
+
+
+.orderdetail .bill .bill-right{
+    width: 25%;
+    background: #ffd601;
+    text-align: center;
+    color: white;
+}

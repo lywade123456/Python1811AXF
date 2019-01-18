@@ -5,7 +5,7 @@ import time
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
-from app.models import Wheel, Nav, Mustbuy, Shop, MainShop, Foodtypes, Goods, User, Cart
+from app.models import Wheel, Nav, Mustbuy, Shop, MainShop, Foodtypes, Goods, User, Cart, Order, OrderGoods
 
 
 def home(request):
@@ -295,3 +295,46 @@ def changecartall(request):
     }
 
     return JsonResponse(data)
+
+def generate_identifire():
+    tempstr = str(int(time.time())) + str(random.random())
+    return tempstr
+
+
+def generateorder(request):
+    token = request.session.get('token')
+    user = User.objects.get(token=token)
+
+    # 订单
+    order = Order()
+    order.user = user
+    order.identifier = generate_identifire()
+    order.save()
+
+    # 订单商品
+    carts = Cart.objects.filter(user=user).filter(isselect=True).exclude(number=0)
+    # 只有选中的商品，才是添加到订单中，从购物车中删除
+    for cart in carts:
+        orderGoods = OrderGoods()
+        orderGoods.order = order
+        orderGoods.goods = cart.goods
+        orderGoods.number = cart.number
+        orderGoods.save()
+
+        # 从购物车中删除
+        cart.delete()
+
+    data = {
+        'msg': '下单成功',
+        'status': 1,
+        'identifier': order.identifier
+    }
+
+    return JsonResponse(data)
+
+
+def orderdetail(request, identifier):
+
+    order = Order.objects.get(identifier=identifier)
+
+    return render(request, 'order/orderdetail.html', context={'order':order})
